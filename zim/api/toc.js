@@ -5,7 +5,7 @@ let zim = {toc: {}};
 
 function getSectionList(){
     let sectionList = [];
-    for (i = 0; i < document.querySelectorAll('h1, h2, h3, h4, h5, h6').length; i++) {
+    for (let i = 0; i < document.querySelectorAll('h1, h2, h3, h4, h5, h6').length; i++) {
         let headerObject = document.querySelectorAll('h1, h2, h3, h4, h5, h6')[i];
         if (headerObject.id === "") {
             headerObject.id = "documentparserid" + i;
@@ -15,7 +15,7 @@ function getSectionList(){
     return sectionList;
 }
 
-zim.toc.hasTableOfContent = function() {
+zim.toc.hasTableOfContents = function() {
     return document.querySelectorAll('h1, h2').length > 0 ? true : false;
 }
 
