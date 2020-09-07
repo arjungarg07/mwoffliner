@@ -34,8 +34,9 @@ zim.toc.getSections = function() {
 
 zim.toc.scrollToSection = function(index){
     const sectionIdElem = getSectionList()[index];
-    sectionIdElem.closest('details').setAttribute('open', '');
-    location.href = `#${sectionIdElem.id}`;
+    const closestClosed = sectionIdElem.closest('details:not([open])');
+    if (closestClosed) closestClosed.setAttribute('open', '');  
+    sectionIdElem.scrollIntoView();
 }
 
 window.zim = zim;
